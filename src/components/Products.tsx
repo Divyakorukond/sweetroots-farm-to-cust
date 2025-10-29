@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Plus, Minus, ShoppingCart } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "sonner";
 import powderImage from "@/assets/product-powder.jpg";
 import cubesImage from "@/assets/product-cubes.jpg";
 import syrupImage from "@/assets/product-syrup.jpg";
@@ -52,6 +54,20 @@ const products: Product[] = [
 
 const ProductCard = ({ product }: { product: Product }) => {
   const [quantity, setQuantity] = useState(1);
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      unit: product.unit,
+      image: product.image,
+      quantity
+    });
+    toast.success(`${product.name} added to cart!`);
+    setQuantity(1);
+  };
 
   return (
     <div className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover-lift border border-border/50 group">
@@ -99,7 +115,10 @@ const ProductCard = ({ product }: { product: Product }) => {
           </div>
         </div>
 
-        <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group">
+        <Button 
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group"
+          onClick={handleAddToCart}
+        >
           <ShoppingCart className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
           Add to Cart
         </Button>

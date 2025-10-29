@@ -1,6 +1,29 @@
-import { Heart, Shield, Sparkles, Zap } from "lucide-react";
+import { useState, useEffect } from 'react';
+import { Heart, Shield, Sparkles, Zap, Lightbulb } from "lucide-react";
 
 const Benefits = () => {
+  const [currentTip, setCurrentTip] = useState(0);
+
+  const proTips = [
+    "💡 Store jaggery in an airtight container to maintain its natural moisture and prevent hardening.",
+    "🍯 Replace white sugar with jaggery powder in your morning tea for a healthier start to your day.",
+    "🥛 Mix jaggery with warm milk and a pinch of turmeric for a natural immunity booster.",
+    "🍪 Use jaggery cubes instead of sugar in baking for richer flavor and added minerals.",
+    "🌿 Consume jaggery after meals to aid digestion and cleanse your palate naturally.",
+    "❄️ In summer, dissolve jaggery in cold water with mint leaves for a refreshing natural drink.",
+    "🍳 Add a small piece of jaggery to dal while cooking to enhance taste and nutrition.",
+    "💪 Athletes can use jaggery as a natural energy booster before workouts.",
+    "🧘 Jaggery helps reduce stress - have a small piece when feeling anxious.",
+    "🌙 Eating jaggery before bed can help improve sleep quality naturally."
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTip((prev) => (prev + 1) % proTips.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [proTips.length]);
+
   const benefits = [
     {
       icon: Heart,
@@ -56,10 +79,24 @@ const Benefits = () => {
           ))}
         </div>
 
-        <div className="mt-12 bg-accent/10 border border-accent/20 rounded-2xl p-8 text-center">
-          <p className="text-accent font-medium text-lg">
-            💡 Pro Tip: Replace refined sugar with our organic jaggery for a healthier lifestyle!
+        <div className="mt-12 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-8">
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <Lightbulb className="h-6 w-6 text-amber-600" />
+            <h3 className="text-xl font-semibold text-amber-800">Pro Tips</h3>
+          </div>
+          <p className="text-amber-700 text-lg leading-relaxed mb-4">
+            {proTips[currentTip]}
           </p>
+          <div className="flex justify-center space-x-2">
+            {proTips.map((_, index) => (
+              <div
+                key={index}
+                className={`h-2 w-2 rounded-full transition-colors ${
+                  index === currentTip ? 'bg-amber-600' : 'bg-amber-300'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

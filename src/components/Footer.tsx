@@ -33,18 +33,27 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              {["Shop", "About Us", "Our Farmers", "Health Benefits", "Blog"].map(
-                (link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                { name: "Shop", href: "#products" },
+                { name: "About Us", href: "#about" },
+
+                { name: "Health Benefits", href: "#benefits" },
+                { name: "How It Works", href: "#how-it-works" }
+              ].map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const section = document.getElementById(link.href.substring(1));
+                      section?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 

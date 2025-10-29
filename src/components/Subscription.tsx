@@ -1,7 +1,53 @@
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Check, Gift } from "lucide-react";
+import { initiatePayment } from '@/utils/razorpay';
+import { toast } from 'sonner';
 
 const Subscription = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async () => {
+    setLoading(true);
+    try {
+      await initiatePayment({
+        key: 'rzp_test_1234567890',
+        amount: 59900, // ₹599 in paise
+        currency: 'INR',
+        name: 'SweetRoots Naturals',
+        description: 'Monthly Jaggery Box Subscription',
+        prefill: {
+          name: 'Customer Name',
+          email: 'customer@example.com',
+          contact: '9999999999'
+        },
+        theme: {
+          color: '#f59e0b'
+        },
+        method: {
+          netbanking: true,
+          card: true,
+          wallet: true,
+          upi: true,
+          paylater: true,
+          emi: false
+        },
+        handler: (response) => {
+          toast.success('Subscription activated! Welcome to SweetRoots family!');
+        },
+        modal: {
+          ondismiss: () => {
+            toast.info('Subscription cancelled');
+          }
+        }
+      });
+    } catch (error) {
+      toast.error('Subscription failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const benefits = [
     "Save 15% on every order",
     "Free delivery on all boxes",
@@ -49,8 +95,10 @@ const Subscription = () => {
                   <Button
                     size="lg"
                     className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300"
+                    onClick={handleSubscribe}
+                    disabled={loading}
                   >
-                    Subscribe Now
+                    {loading ? 'Processing...' : 'Subscribe Now'}
                   </Button>
                   <p className="text-sm text-muted-foreground mt-3">
                     Starting from ₹599/month
