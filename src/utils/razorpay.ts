@@ -49,12 +49,16 @@ export const loadRazorpayScript = (): Promise<boolean> => {
 };
 
 export const initiatePayment = async (options: RazorpayOptions): Promise<void> => {
+  console.log('Initiating payment with options:', options);
+  
   const isLoaded = await loadRazorpayScript();
   
   if (!isLoaded) {
+    console.error('Razorpay SDK failed to load');
     throw new Error('Razorpay SDK failed to load');
   }
 
+  console.log('Razorpay SDK loaded successfully');
   const razorpay = new window.Razorpay(options);
   razorpay.open();
 };

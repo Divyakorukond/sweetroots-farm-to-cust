@@ -8,38 +8,38 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Warm earthy color palette */
-    --background: 40 30% 98%;
-    --foreground: 30 25% 20%;
+    /* Warm earthy color palette - using full HSL values */
+    --background: hsl(40, 30%, 98%);
+    --foreground: hsl(30, 25%, 20%);
 
-    --card: 0 0% 100%;
-    --card-foreground: 30 25% 20%;
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(30, 25%, 20%);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 30 25% 20%;
+    --popover: hsl(0, 0%, 100%);
+    --popover-foreground: hsl(30, 25%, 20%);
 
     /* Honey gold primary */
-    --primary: 38 92% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary: hsl(38, 92%, 50%);
+    --primary-foreground: hsl(0, 0%, 100%);
     
     /* Warm brown secondary */
-    --secondary: 30 35% 88%;
-    --secondary-foreground: 30 25% 25%;
+    --secondary: hsl(30, 35%, 88%);
+    --secondary-foreground: hsl(30, 25%, 25%);
 
     /* Beige muted tones */
-    --muted: 40 20% 92%;
-    --muted-foreground: 30 15% 45%;
+    --muted: hsl(40, 20%, 92%);
+    --muted-foreground: hsl(30, 15%, 45%);
 
     /* Forest green accent */
-    --accent: 120 30% 40%;
-    --accent-foreground: 0 0% 100%;
+    --accent: hsl(120, 30%, 40%);
+    --accent-foreground: hsl(0, 0%, 100%);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: hsl(0, 84.2%, 60.2%);
+    --destructive-foreground: hsl(0, 0%, 100%);
 
-    --border: 40 20% 85%;
-    --input: 40 20% 90%;
-    --ring: 38 92% 50%;
+    --border: hsl(40, 20%, 85%);
+    --input: hsl(40, 20%, 90%);
+    --ring: hsl(38, 92%, 50%);
 
     --radius: 0.75rem;
     
@@ -50,59 +50,52 @@ All colors MUST be HSL.
     --shadow-soft: 0 4px 20px -4px hsl(30 25% 20% / 0.1);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: hsl(0, 0%, 98%);
+    --sidebar-foreground: hsl(240, 5.3%, 26.1%);
+    --sidebar-primary: hsl(240, 5.9%, 10%);
+    --sidebar-primary-foreground: hsl(0, 0%, 98%);
+    --sidebar-accent: hsl(240, 4.8%, 95.9%);
+    --sidebar-accent-foreground: hsl(240, 5.9%, 10%);
+    --sidebar-border: hsl(220, 13%, 91%);
+    --sidebar-ring: hsl(217.2, 91.2%, 59.8%);
   }
 
   .dark {
-    --background: 30 25% 12%;
-    --foreground: 40 30% 95%;
+    --background: hsl(30, 25%, 12%);
+    --foreground: hsl(40, 30%, 95%);
 
-    --card: 30 25% 15%;
-    --card-foreground: 40 30% 95%;
+    --card: hsl(30, 25%, 15%);
+    --card-foreground: hsl(40, 30%, 95%);
 
-    --popover: 30 25% 15%;
-    --popover-foreground: 40 30% 95%;
+    --popover: hsl(30, 25%, 15%);
+    --popover-foreground: hsl(40, 30%, 95%);
 
-    --primary: 38 92% 55%;
-    --primary-foreground: 30 25% 12%;
+    --primary: hsl(38, 92%, 55%);
+    --primary-foreground: hsl(30, 25%, 12%);
 
-    --secondary: 30 20% 25%;
-    --secondary-foreground: 40 30% 95%;
+    --secondary: hsl(30, 20%, 25%);
+    --secondary-foreground: hsl(40, 30%, 95%);
 
-    --muted: 30 20% 22%;
-    --muted-foreground: 40 15% 65%;
+    --muted: hsl(30, 20%, 22%);
+    --muted-foreground: hsl(40, 15%, 65%);
 
-    --accent: 120 30% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: hsl(120, 30%, 45%);
+    --accent-foreground: hsl(0, 0%, 100%);
 
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: hsl(0, 62.8%, 50%);
+    --destructive-foreground: hsl(0, 0%, 100%);
 
-    --border: 30 20% 25%;
-    --input: 30 20% 25%;
-    --ring: 38 92% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: hsl(30, 20%, 25%);
+    --input: hsl(30, 20%, 25%);
+    --ring: hsl(38, 92%, 55%);
+    --sidebar-background: hsl(240, 5.9%, 10%);
+    --sidebar-foreground: hsl(240, 4.8%, 95.9%);
+    --sidebar-primary: hsl(224.3, 76.3%, 48%);
+    --sidebar-primary-foreground: hsl(0, 0%, 100%);
+    --sidebar-accent: hsl(240, 3.7%, 15.9%);
+    --sidebar-accent-foreground: hsl(240, 4.8%, 95.9%);
+    --sidebar-border: hsl(240, 3.7%, 15.9%);
+    --sidebar-ring: hsl(217.2, 91.2%, 59.8%);
   }
 }
 
@@ -122,7 +115,21 @@ All colors MUST be HSL.
 
 @layer utilities {
   .text-gradient-honey {
-    @apply bg-gradient-to-r from-primary to-yellow-500 bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #f59e0b, #eab308, #d97706);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    font-weight: 600;
+    /* Fallback color for unsupported browsers */
+    color: #f59e0b;
+  }
+  
+  /* Ensure gradient works in production */
+  @supports (-webkit-background-clip: text) {
+    .text-gradient-honey {
+      color: transparent;
+    }
   }
   
   .animate-fade-in-up {

@@ -9,43 +9,12 @@ const Subscription = () => {
 
   const handleSubscribe = async () => {
     setLoading(true);
-    try {
-      await initiatePayment({
-        key: 'rzp_test_1234567890',
-        amount: 59900, // ₹599 in paise
-        currency: 'INR',
-        name: 'SweetRoots Naturals',
-        description: 'Monthly Jaggery Box Subscription',
-        prefill: {
-          name: 'Customer Name',
-          email: 'customer@example.com',
-          contact: '9999999999'
-        },
-        theme: {
-          color: '#f59e0b'
-        },
-        method: {
-          netbanking: true,
-          card: true,
-          wallet: true,
-          upi: true,
-          paylater: true,
-          emi: false
-        },
-        handler: (response) => {
-          toast.success('Subscription activated! Welcome to SweetRoots family!');
-        },
-        modal: {
-          ondismiss: () => {
-            toast.info('Subscription cancelled');
-          }
-        }
-      });
-    } catch (error) {
-      toast.error('Subscription failed. Please try again.');
-    } finally {
+    
+    // Demo subscription flow
+    setTimeout(() => {
+      toast.success('Subscription activated! Welcome to SweetRoots family!');
       setLoading(false);
-    }
+    }, 2000);
   };
 
   const benefits = [
@@ -94,7 +63,7 @@ const Subscription = () => {
                 <div className="pt-4">
                   <Button
                     size="lg"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                     onClick={handleSubscribe}
                     disabled={loading}
                   >
@@ -107,14 +76,14 @@ const Subscription = () => {
               </div>
 
               {/* Right side - Highlight */}
-              <div className="md:w-1/3 bg-gradient-to-br from-primary to-primary/80 p-10 flex flex-col justify-center items-center text-center text-primary-foreground">
+              <div className="md:w-1/3 bg-gradient-to-br from-amber-200 via-yellow-200 to-orange-200 p-10 flex flex-col justify-center items-center text-center text-amber-800">
                 <div className="space-y-4">
                   <div className="text-6xl font-bold">15%</div>
                   <div className="text-2xl font-semibold">OFF</div>
                   <div className="text-sm opacity-90">
                     On Every Subscription Order
                   </div>
-                  <div className="pt-4 border-t border-primary-foreground/20">
+                  <div className="pt-4 border-t border-amber-800/20">
                     <div className="text-sm font-medium">Plus</div>
                     <div className="text-lg font-semibold">FREE Delivery</div>
                   </div>
